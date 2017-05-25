@@ -5,7 +5,8 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: 'timeleap.min.js',
-    library: "timeleap"
+    library: "timeleap",
+    libraryTarget: "umd"
   },
   devServer: {
     contentBase: path.join(__dirname, "build"),
