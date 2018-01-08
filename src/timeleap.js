@@ -22,6 +22,11 @@ var timeleap = (function(){
             return new (OriginalDate.bind.apply(OriginalDate, [null].concat(args)))();
         }
         Date.prototype = OriginalDate.prototype;
+
+        // copy all properties after monkey patching
+        Object.getOwnPropertyNames(OriginalDate).forEach(function (val, idx, array) {
+            Date[val] = OriginalDate[val];
+        });        
     }
 
     var reset = function(){
